@@ -1,10 +1,191 @@
 .container {
-	min-width: 280px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 20px;
-	padding-right: 20px;
+  min-width: 280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include media($md) {
+    min-width: 768px;
+  }
+
+  @include media($lg) {
+    min-width: 1440px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  transition: opacity .2s ease-in;
 
+  @include media($md) {
+	&:hover {
+		opacity: .8;
+	}
 
+	&:focus {
+		opacity: .6;
+	}
+ }
+
+  &__icon {
+    width: 39px;
+    height: 38px;
+
+    @include media($md) {
+      width: 60px;
+      height: 52px;
+		margin-right: 14px;
+    }
+
+    @include media($md) {
+      width: 70px;
+      height: 59px;
+    }
+  }
+
+  &-text {
+    width: 101px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    pointer-events: none;
+    cursor: default;
+
+    @include media($md) {
+      position: static;
+      height: 21px;
+    }
+
+    @include media($lg) {
+      width: 118px;
+      height: 24px;
+
+    }
+  }
+}
+
+.burger {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 17px;
+  border: none;
+  background-color: transparent;
+  border-top: 2px solid var(--color-black-main);
+  border-bottom: 2px solid var(--color-black-main);
+  cursor: pointer;
+  transition: opacity .2s ease-in;
+
+  &:hover {
+    opacity: .6;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color-black-main);
+    transition: transform 0.2s ease;
+  }
+
+  &._active {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    z-index: 55;
+  }
+
+  &._active::after {
+    transform: rotate(-45deg);
+    background-color: var(--color-black-main);
+  }
+
+  &._active::before {
+    transform: rotate(45deg);
+    background-color: var(--color-black-main);
+  }
+
+  @include media($md) {
+    display: none;
+  }
+}
+
+.main-title {
+  display: block;
+  font-family: $basic-family;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: var(--color-white-main);
+  margin-bottom: 25px;
+
+  @include media($md) {
+    color: var(--color-black-main);
+    text-align: left;
+    font-size: 60px;
+    line-height: 60px;
+    margin-bottom: 41px;
+  }
+}
+
+.desc {
+  font-family: $basic-family;
+  color: var(--color-white-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  margin-bottom: 30px;
+
+  @include media($md) {
+    color: var(--color-black-main);
+    text-align: left;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 49px;
+  }
+}
+
+.btn {
+  display: block;
+  min-width: 240px;
+  font-family: $basic-family;
+  color: var(--color-white-main);
+  background: var(--color-bg-green);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  border: 0;
+  padding: 11px 64px;
+  transition: background .2s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-bg-green-hover);
+  }
+
+  &:focus {
+    color: var(--color-white-opacity);
+  }
+
+  @include media($md) {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 14px 26px;
+  }
+}

@@ -1,0 +1,237 @@
+.header {
+  padding-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  background: var(--color-white-main);
+
+
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    transition: left .2s ease-in, right .2s ease-in;
+
+    @include media($md) {
+      padding-top: 24px;
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      z-index: 150;
+    }
+
+    @include media($lg) {
+      padding-top: 66px;
+      left: 110px;
+      right: 110px;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background: var(--color-white-main);
+  z-index: 1;
+  transform: translateY(-100%);
+  transition: transform .2s ease-in;
+
+  @include media($md) {
+    position: static;
+    transform: translateY(0);
+    transition: none;
+  }
+
+  @include media($lg) {
+    background: transparent;
+  }
+
+  &._active {
+    top: 66px;
+    transform: translateY(0);
+  }
+
+  &__menu {
+    list-style-type: none;
+
+    @include media($md) {
+      display: flex;
+      justify-content: end;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    border-top: 1px solid var(--color-bg-grey-basic);
+
+    @include media($md) {
+      border-top: 0;
+      padding: 0 17px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+    }
+
+    &:last-child {
+      border-bottom: 1px solid var(--color-bg-grey-basic);
+
+      @include media($md) {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 23px 20px;
+    font-family: $basic-family;
+    font-size: 20px;
+    line-height: 20px;
+    text-decoration: none;
+    color: var(--color-black-main);
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+
+    transition: opacity .2s ease-in;
+
+    @include media($md) {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 400;
+      padding: 0;
+      padding-bottom: 8px;
+
+      &:hover {
+        opacity: .6;
+      }
+
+      &:focus {
+        opacity: .3;
+      }
+
+      &._active {
+        border-bottom: 2px solid var(--color-bg-green);
+
+        @include media($lg) {
+          border-bottom: 2px solid var(--color-white-main);
+        }
+      }
+    }
+
+    @include media($lg) {
+      font-size: 20px;
+      line-height: 30px;
+      color: var(--color-white-main);
+    }
+  }
+}
+
+.promo {
+  padding-top: 27px;
+  position: relative;
+
+  @include media($md) {
+    padding-top: 140px;
+  }
+
+  @include media($lg) {
+    padding-top: 223px;
+  }
+
+  &__bg {
+    background-color: var(--color-bg-green);
+    background-image: -webkit-image-set(url("../img/bg-cat-1x.jpg") 1x,
+        url("../img/bg-cat-retina.jpg") 2x);
+    background-image: image-set(url("../img/bg-cat-1x.jpg") 1x,
+        url("../img/bg-cat-retina.jpg") 2x);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 302px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: var(--color-bg-green);
+      opacity: 0.85;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    @include media($md) {
+      display: none;
+    }
+
+    @include media($lg) {
+      display: block;
+      width: 50%;
+      height: 697px;
+      right: 0;
+      left: auto;
+      background-position: left bottom;
+    }
+  }
+
+  &__content {
+    @include media($md) {
+      padding-left: 78px;
+      position: relative;
+    }
+  }
+
+  &__desc {
+    text-transform: uppercase;
+  }
+
+  &__img {
+    width: 280px;
+    height: 270px;
+    overflow: hidden;
+    margin: auto;
+
+    @include media($md) {
+      width: 570px;
+      height: 560px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    & .img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &__btn {
+    margin: auto;
+
+    @include media($md) {
+      margin: initial;
+    }
+  }
+}

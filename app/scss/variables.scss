@@ -1,9 +1,8 @@
 //bacgrounds
-$body-bg: #ff55;
 
 //fonts
 $basic-family: 'Oswald', 'Arial', 'Helvetica', sans-serif;
-$text-family: 	 'Arial', 'Helvetica', sans-serif;
+$text-family: 	'Arial', 'Helvetica', sans-serif;
 
 //sizes
 $md: 768px;
@@ -11,5 +10,11 @@ $lg: 1440px;
 
 
 // colors 
-
-
+:root {
+	--color-black-main: #000000;
+	--color-white-main: #FFFFFF;
+	--color-white-opacity: rgba(255, 255, 255, 0.3);
+	--color-bg-green: #68B738;
+	--color-bg-green-hover: #5EAA2F;
+	--color-bg-grey-basic: #E6E6E6;
+}
