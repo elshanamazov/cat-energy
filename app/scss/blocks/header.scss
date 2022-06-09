@@ -195,8 +195,7 @@
 
   &__content {
     @include media($md) {
-      padding-left: 78px;
-      position: relative;
+      margin-left: 78px;
     }
   }
 
@@ -215,8 +214,21 @@
       height: 560px;
       position: absolute;
       right: 0;
-      top: 0;
+      left: 0;
+      top: 200px;
+      margin: 0 auto;
       z-index: -1;
+    }
+
+    @include media($lg) {
+      width: 520px;
+      height: 470px;
+      top: 32px;
+      right: 0;
+      left: 78px;
+      bottom: 0;
+      margin: auto;
+
     }
 
     & .img {
