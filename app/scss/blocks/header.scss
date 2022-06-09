@@ -4,7 +4,9 @@
   z-index: 1;
   background: var(--color-white-main);
 
-
+	@include media($md) {
+		min-height: 950px;
+	}
 
   &__wrap {
     display: flex;
