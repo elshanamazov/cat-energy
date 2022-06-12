@@ -9,6 +9,10 @@
     padding-bottom: 0;
   }
 
+  @include media($lg) {
+	height: 100vh;
+  }
+
   &__wrap {
     display: flex;
     justify-content: space-between;
