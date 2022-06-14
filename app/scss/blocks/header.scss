@@ -32,8 +32,8 @@
 
     @include media($lg) {
       padding-top: 66px;
-      left: 110px;
-      right: 110px;
+      left: 0;
+      right: 0;
     }
   }
 }
