@@ -10,7 +10,7 @@
   }
 
   @include media($lg) {
-    min-height: auto;
+    min-height: 694px;
   }
 
   &__wrap {
@@ -32,8 +32,6 @@
 
     @include media($lg) {
       padding-top: 66px;
-      left: 0;
-      right: 0;
     }
   }
 }
@@ -151,6 +149,7 @@
 
   @include media($md) {
     padding-top: 140px;
+	 position: static;
   }
 
   @include media($lg) {
@@ -193,7 +192,7 @@
     @include media($lg) {
       display: block;
       width: 50%;
-      height: 697px;
+      height: 100%;
       right: 0;
       left: auto;
       background-position: left bottom;
@@ -201,6 +200,9 @@
   }
 
   &__content {
+    max-width: 414px;
+    margin: 0 auto;
+
     @include media($md) {
       margin-left: 78px;
     }
@@ -222,7 +224,7 @@
       position: absolute;
       right: 0;
       left: 0;
-      top: 80%;
+      top: 75%;
       margin: 0 auto;
       z-index: -1;
     }
@@ -233,6 +235,7 @@
       right: 0;
       left: 78px;
       bottom: 0;
+      top: 0;
       margin: auto;
 
     }
