@@ -70,6 +70,11 @@
       justify-content: end;
       flex-wrap: wrap;
     }
+
+    @include media($lg) {
+      margin-left: auto;
+      width: 50%;
+    }
   }
 
   &__item {
@@ -78,11 +83,6 @@
     @include media($md) {
       border-top: 0;
       padding: 0 17px;
-
-      &:last-child {
-        padding-right: 0;
-      }
-
     }
 
     &:last-child {
@@ -149,7 +149,7 @@
 
   @include media($md) {
     padding-top: 140px;
-	 position: static;
+    position: static;
   }
 
   @include media($lg) {
