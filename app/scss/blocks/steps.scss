@@ -1,0 +1,103 @@
+.steps {
+  padding-top: 20px;
+  padding-bottom: 49px;
+
+  @include media($md) {
+    padding-top: 45px;
+  }
+
+  @include media($lg) {
+    padding-top: 71px;
+    padding-bottom: 26px;
+  }
+
+  &__wrap {
+    @include media($md) {
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr;
+      row-gap: 37px;
+      column-gap: 150px;
+    }
+
+    @include media($lg) {
+      grid-template: auto / 1fr 1fr 1fr 1fr;
+      column-gap: 94px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include media($md) {
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 250px;
+      position: relative;
+      min-height: 280px;
+      padding-top: 40px;
+      margin-bottom: 0;
+
+      &::after {
+        content: attr(data-numb);
+        position: absolute;
+        font-family: $basic-family;
+        font-weight: 400;
+        font-size: 280px;
+        line-height: 280px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        z-index: -1;
+        color: var(--color-bg-grey-second);
+
+      }
+    }
+  }
+
+  &__icon {
+    padding: 16px;
+    width: 60px;
+    height: 60px;
+    background: var(--color-bg-green) url(../img/icons/icon_leaf.svg) no-repeat center center;
+    margin-right: 20px;
+
+    @include media($md) {
+      width: 80px;
+      height: 80px;
+      padding: 26px;
+      margin-right: 0;
+      margin-bottom: 31px;
+    }
+
+    &--tub {
+      background: var(--color-bg-green) url(../img/icons/icon_tub.svg) no-repeat center center;
+    }
+
+    &--eat {
+      background: var(--color-bg-green) url(../img/icons/icon_eat.svg) no-repeat center center;
+    }
+
+    &--alarm {
+      background: var(--color-bg-green) url(../img/icons/icon_alarm.svg) no-repeat center center;
+    }
+  }
+
+  &__desc {
+    color: var(--color-dark-grey);
+    margin-bottom: 0;
+    max-width: 198px;
+    text-align: left;
+
+    @include media($md) {
+      max-width: 250px;
+    }
+  }
+}
