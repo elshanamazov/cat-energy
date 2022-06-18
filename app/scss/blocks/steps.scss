@@ -66,14 +66,14 @@
     padding: 16px;
     width: 60px;
     height: 60px;
+	 margin-right: 20px;
     background: var(--color-bg-green) url(../img/icons/icon_leaf.svg) no-repeat center center;
-    margin-right: 20px;
 
     @include media($md) {
       width: 80px;
       height: 80px;
       padding: 26px;
-      margin-right: 0;
+		margin-right: 0;
       margin-bottom: 31px;
     }
 
@@ -94,10 +94,14 @@
     color: var(--color-dark-grey);
     margin-bottom: 0;
     max-width: 198px;
+    font-weight: 400;
     text-align: left;
+    line-height: 18px;
 
     @include media($md) {
-      max-width: 250px;
+      min-width: 210px;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }
