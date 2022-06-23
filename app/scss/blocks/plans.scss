@@ -27,6 +27,8 @@
     }
 
     @include media($lg) {
+		display: flex;
+		flex-direction: column;
       margin-bottom: 0;
       position: static;
       padding: 77px 51px 55px 52px;
@@ -151,6 +153,7 @@
     @include media($lg) {
       max-width: 100%;
       margin-bottom: 23px;
+		flex-grow: 1;
     }
 
     &::after {
@@ -207,5 +210,8 @@
       font-size: 20px;
       line-height: 30px;
     }
+	 @include media($lg) {
+		max-width: 167px;
+	 }
   }
 }
