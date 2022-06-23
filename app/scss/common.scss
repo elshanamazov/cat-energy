@@ -5,6 +5,16 @@
   padding-left: 20px;
   padding-right: 20px;
   position: relative;
+
+  @include media($md) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @include media($lg) {
+    padding-right: 110px;
+    padding-left: 110px;
+  }
 }
 
 .logo {
@@ -133,6 +143,30 @@
   }
 }
 
+.second-title {
+  font-family: $basic-family;
+  color: var(--color-black-main);
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 400;
+  margin-bottom: 40px;
+
+  @include media($md) {
+    font-size: 60px;
+    line-height: 60px;
+    margin-bottom: 32px;
+  }
+}
+
+.third-title {
+  font-family: $basic-family;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 37px;
+  font-weight: 400;
+  color: var(--color-black-main);
+}
+
 .desc {
   font-family: $basic-family;
   color: var(--color-white-main);
@@ -149,6 +183,13 @@
     line-height: 20px;
     margin-bottom: 49px;
   }
+}
+
+.second-desc {
+  font-family: $text-family;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-dark-grey);
 }
 
 .btn {
