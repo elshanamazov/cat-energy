@@ -87,31 +87,28 @@
                 </div>
               </div>
 
-			  <div hidden class="example__slider">
-					<div class="example__slider-item">
-						<img class="example__slider-img" src="img/before-mobile.png" alt="Толстый кот">
-					</div>
-					<div class="example__slider-item">
-						<img class="example__slider-img" src="img/after-mobile.png" alt="Худой кот">
-					</div>
-					<div class="example__range">
-						<button class="example__range-btn js-btn-after" type="submit" >Было</button>
-						<input value="50" class="example__range-line js-slider" oninput="changeSliderValue() "type="range" min="1" max="2">
-						<button class="example__range-btn js-btn-before" type="submit">Стало</button>
-					</div>
-			  </div>
+              <div hidden class="example__slider">
+                <div class="example__slider-item">
+                  <img class="example__slider-img" src="img/before-mobile.png" alt="Толстый кот">
+                </div>
+                <div class="example__slider-item">
+                  <img class="example__slider-img" src="img/after-mobile.png" alt="Худой кот">
+                </div>
+                <div class="example__range">
+                  <button class="example__range-btn js-btn-after" type="submit">Было</button>
+                  <!-- <input value="50" class="example__range-line js-slider" oninput="changeSliderValue() " type="range"
+                    min="1" max="2"> -->
+                  <button class="example__range-btn js-btn-before" type="submit">Стало</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+    </main>
+    <!-- подключаем подвал -->
+    @@include('blocks/footer.html')
   </div>
-  </section>
-  </main>
-  <!-- подключаем подвал -->
-  @@include('blocks/footer.html')
-
-  </div>
-
-
   <!-- подключаем js -->
   <script src="js/main.js"></script>
 </body>
