@@ -60,9 +60,54 @@
           </ul>
         </div>
       </section>
-    </main>
-    <!-- подключаем подвал -->
-    @@include('blocks/footer.html')
+
+      <section class="example">
+        <div class="container">
+          <div class="example__wrap">
+            <div class="example__item">
+              <h2 class="example__title second-title">Живой пример</h2>
+              <p class="example__desc desc">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat
+                Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и
+                по-прежнему спит по 16 часов в день. </p>
+
+              <div class="example__result">
+                <div class="example__result-item">
+                  <h3 class="example__result-title second-title">5 кг</h3>
+                  <p class="example__result-text second-desc">снижение веса</p>
+                </div>
+
+                <div class="example__result-item">
+                  <h3 class="example__result-title second-title">60 дней</h3>
+                  <p class="example__result-text second-desc">затрачено времени</p>
+                </div>
+
+                <div class="example__result-descs">
+                  <p class="example__result-desc desc">Затраты на питание:</p>
+                  <p class="example__result-desc desc">15 000 РУБ.</p>
+                </div>
+              </div>
+
+			  <div hidden class="example__slider">
+					<div class="example__slider-item">
+						<img class="example__slider-img" src="img/before-mobile.png" alt="Толстый кот">
+					</div>
+					<div class="example__slider-item">
+						<img class="example__slider-img" src="img/after-mobile.png" alt="Худой кот">
+					</div>
+					<div class="example__range">
+						<button class="example__range-btn js-btn-after" type="submit" >Было</button>
+						<input value="50" class="example__range-line js-slider" oninput="changeSliderValue() "type="range" min="1" max="2">
+						<button class="example__range-btn js-btn-before" type="submit">Стало</button>
+					</div>
+			  </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  </section>
+  </main>
+  <!-- подключаем подвал -->
+  @@include('blocks/footer.html')
 
   </div>
 
