@@ -67,11 +67,26 @@
     }
   }
 
+  &__body {
+    display: flex;
+  }
+
   &__result {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+
+    @include media($md) {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include media($lg) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     &-item {
       position: relative;
@@ -83,6 +98,16 @@
 
       &+& {
         margin-left: 32px;
+
+        @include media($lg) {
+          margin-left: 42px;
+        }
+      }
+
+      @include media($md) {
+        width: 162px;
+        height: 77px;
+        padding-top: 0;
       }
     }
 
@@ -91,6 +116,13 @@
       font-size: 24px;
       line-height: 24px;
       text-align: center;
+
+      @include media($md) {
+        font-size: 30px;
+        line-height: 37px;
+        padding-top: 15px;
+        padding-bottom: 16px;
+      }
     }
 
     &-text {
@@ -107,6 +139,16 @@
       left: 0;
       right: 0;
       margin: 0 auto;
+
+      @include media($md) {
+        width: fit-content;
+        bottom: auto;
+        background-color: var(--color-white-main);
+      }
+
+      @include media($lg) {
+        background-color: var(--color-bg-light-grey);
+      }
     }
 
     &-descs {
@@ -114,6 +156,19 @@
       margin-top: 30px;
       justify-content: center;
       width: 100%;
+
+      @include media($md) {
+        flex-direction: column;
+        width: auto;
+        text-align-last: right;
+        margin-top: 0;
+        padding-left: 15px;
+      }
+
+      @include media($lg) {
+        margin-top: 69px;
+        flex-direction: row;
+      }
     }
 
     &-desc {
@@ -121,31 +176,64 @@
       color: var(--color-black-main);
       text-transform: uppercase;
       margin-bottom: 0;
+      padding-right: 4px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      @include media($md) {
+        padding-right: 0;
+
+        &+& {
+          margin-top: 9px;
+
+          @include media($lg) {
+            margin-top: 0;
+            margin-left: 63px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &__body {
+    position: relative;
+    display: inline-grid;
+  }
+
+  &__item {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    clip-path: inset(0 0 0 var(--slider-value-after, 100%));
+    overflow: hidden;
+
+    @include media($md) {
+        clip-path: inset(0 0 0 var(--slider-value, 50%));
+    }
+
+    //худой кот
+    &:first-of-type {
+      clip-path: inset(0 var(--slider-value-before, 0) 0 0);
+
+      @include media($md) {
+        clip-path: inset(0 calc(50% - var(--slider-value-before, 0)) 0 0);
+      }
     }
   }
 
-  &__slider {
-    margin: 0 auto;
-    position: relative;
-
-    &-item {
-      max-width: 592px;
-      overflow: hidden;
-
-      &:nth-child(2) {
-        display: none;
-      }
-
-      &._show {
-        display: block;
-      }
-    }
-
-    &-img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-    }
+  &__img {
+    min-height: 232px;
+    object-fit: contain;
   }
 
   &__range {
@@ -153,33 +241,113 @@
     justify-content: center;
     align-items: center;
     margin-top: 15px;
+  }
 
-    &-line {
-      position: relative;
-      width: 84px;
-      height: 14px;
-      border: 1px solid var(--color-border-grey);
-      border-radius: 6px;
-      outline: 0;
-      padding-left: 6px;
-      padding-right: 6px;
-      margin-right: 13px;
-      margin-left: 13px;
-      overflow: visible;
-	  background: var(--color-bg-green);
+  &__line {
+    position: relative;
+    display: block;
+    width: 85px;
+    appearance: none;
+    height: 14px;
+    border: 1px solid var(--color-border-grey);
+    border-radius: 6px;
+    margin-left: 13px;
+    margin-right: 13px;
+    cursor: pointer;
+
+
+    @include media($md) {
+      border: 0;
+      width: 426px;
+      height: 6px;
+      background-color: var(--color-border-grey);
     }
 
-    &-btn {
-      font-family: $basic-family;
-      font-weight: 400;
-      text-transform: uppercase;
-      font-size: 16px;
-      line-height: 20px;
-      color: var(--color-black-main);
-      background: transparent;
-      border: 0;
-      cursor: pointer;
+    &[type=range]::-webkit-slider-thumb {
+      display: none;
+
+      @include media ($md) {
+        display: block;
+        position: relative;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
+        -webkit-appearance: none;
+        height: 34px;
+        width: 34px;
+        background: var(--color-white-main);
+        border-radius: 50%;
+        border: 1px solid var(--color-border-grey);
+        position: relative;
+        transition: filter .2s ease-in, border .2s ease-in;
+        cursor: grab;
+
+        &:hover {
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+        }
+
+        &:focus {
+          border: 2px solid green;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 35px;
+      height: 6px;
+      background: var(--color-bg-green);
+      border-radius: 6px;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+
+      @include media($md) {
+        display: none;
+      }
+    }
+
+    @include media($md) {
+      position: static;
+    }
+
+
+    &._hover::after {
+      right: 6px;
+      left: auto;
     }
   }
 
+  &__btn {
+    display: inline-block;
+    font-family: $basic-family;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 8px;
+    line-height: 20px;
+    color: var(--color-black-main);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    @include media($md) {
+      font-size: 20px;
+      line-height: 30px;
+      padding: 0;
+      padding-bottom: 3px;
+      position: relative;
+      border-bottom: 1px dotted var(--color-border-grey-dotted);
+      transition: border-bottom .2s ease-in;
+
+      &:hover {
+        border-bottom: 1px solid var(--color-black-main);
+      }
+
+      &:focus {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
 }

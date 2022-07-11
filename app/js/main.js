@@ -8,4 +8,3 @@ burger.addEventListener('click', function(){
 	menu.classList.toggle('_active');
 })
 
-

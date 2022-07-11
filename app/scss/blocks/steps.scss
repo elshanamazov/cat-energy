@@ -17,6 +17,7 @@
       grid-template: 1fr 1fr / 1fr 1fr;
       row-gap: 37px;
       column-gap: 150px;
+      counter-reset: num;
     }
 
     @include media($lg) {
@@ -45,7 +46,8 @@
       margin-bottom: 0;
 
       &::after {
-        content: attr(data-numb);
+        counter-increment: num;
+        content: counter(num);
         position: absolute;
         font-family: $basic-family;
         font-weight: 400;
@@ -66,14 +68,14 @@
     padding: 16px;
     width: 60px;
     height: 60px;
-	 margin-right: 20px;
+    margin-right: 20px;
     background: var(--color-bg-green) url(../img/icons/icon_leaf.svg) no-repeat center center;
 
     @include media($md) {
       width: 80px;
       height: 80px;
       padding: 26px;
-		margin-right: 0;
+      margin-right: 0;
       margin-bottom: 31px;
     }
 
