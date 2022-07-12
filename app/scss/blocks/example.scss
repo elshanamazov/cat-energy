@@ -218,7 +218,7 @@
     overflow: hidden;
 
     @include media($md) {
-        clip-path: inset(0 0 0 var(--slider-value, 50%));
+      clip-path: inset(0 0 0 var(--slider-value, 50%));
     }
 
     //худой кот
@@ -245,49 +245,88 @@
 
   &__line {
     position: relative;
-    display: block;
-    width: 85px;
-    appearance: none;
-    height: 14px;
-    border: 1px solid var(--color-border-grey);
-    border-radius: 6px;
     margin-left: 13px;
     margin-right: 13px;
-    cursor: pointer;
+    width: 85px;
+    height: 14px;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 6px;
+    border: 1px solid var(--color-border-grey);
+    background: var(--color-white-main);
 
-
-    @include media($md) {
-      border: 0;
-      width: 426px;
-      height: 6px;
-      background-color: var(--color-border-grey);
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
     }
 
-    &[type=range]::-webkit-slider-thumb {
-      display: none;
+    &::-moz-range-thumb {
+      position: relative;
+      opacity: 0;
+    }
 
-      @include media ($md) {
-        display: block;
+    &::-moz-range-track {
+      -webkit-appearance: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include media($md) {
+      width: 426px;
+      height: 14px;
+      background-color: var(--color-border-grey);
+      border: 0;
+
+      &::-webkit-slider-thumb {
         position: relative;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
-        -webkit-appearance: none;
-        height: 34px;
         width: 34px;
-        background: var(--color-white-main);
+        height: 34px;
         border-radius: 50%;
         border: 1px solid var(--color-border-grey);
-        position: relative;
-        transition: filter .2s ease-in, border .2s ease-in;
+        background: var(--color-white-main);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
         cursor: grab;
-
-        &:hover {
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
-        }
-
-        &:focus {
-          border: 2px solid green;
-        }
       }
+
+      &:hover::-webkit-slider-thumb {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+      }
+
+      &:focus::-webkit-slider-thumb {
+        border: 1px solid var(--color-bg-green);
+      }
+
+      &::after::-webkit-slider-thumb {
+        content: '';
+        position: absolute;
+        background: green;
+        left: 0;
+        top: 0;
+        width: 8px;
+        height: 8px;
+        z-index: 1;
+      }
+
+      &::-moz-range-thumb {
+        opacity: 1;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid var(--color-border-grey);
+        background: var(--color-white-main);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
+        cursor: grab;
+      }
+
+      &:hover::-moz-range-thumb {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+      }
+
+      &:focus::-moz-range-thumb {
+        border: 1px solid var(--color-bg-green);
+      }
+
     }
 
     &::after {
@@ -307,11 +346,6 @@
         display: none;
       }
     }
-
-    @include media($md) {
-      position: static;
-    }
-
 
     &._hover::after {
       right: 6px;
