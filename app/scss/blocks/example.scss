@@ -251,6 +251,7 @@
 
     @include media($md) {
       min-height: 511px;
+      width: 100%;
     }
   }
 
