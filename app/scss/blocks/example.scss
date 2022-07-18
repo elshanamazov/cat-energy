@@ -240,7 +240,7 @@
       clip-path: inset(0 var(--slider-value-before, 0) 0 0);
 
       @include media($md) {
-        clip-path: inset(0 calc(50% - var(--slider-value-before, 0)) 0 0);
+        clip-path: inset(0 calc(100% - var(--slider-value, 50%)) 0 0);
       }
     }
   }
