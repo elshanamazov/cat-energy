@@ -20,11 +20,22 @@
       position: absolute;
       max-width: 565px;
       z-index: 1;
-      background: var(--color-white-main);
       top: 95px;
       left: 110px;
       padding: 56px 80px;
       height: 198px;
+    }
+
+    &--inner {
+      background: var(--color-bg-grey-second);
+
+      @include media ($md) {
+        background: var(--color-bg-grey-second);
+      }
+
+      @include media ($lg) {
+        background: var(--color-white-main);
+      }
     }
   }
 
