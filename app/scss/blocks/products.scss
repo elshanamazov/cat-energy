@@ -85,10 +85,6 @@
       height: 171px;
       overflow: hidden;
       margin-bottom: 31px;
-
-      &~&:nth-child(2n) {
-        height: 250px;
-      }
     }
 
     @include media($lg) {
